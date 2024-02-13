@@ -8,21 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EnrollmentService {
+public abstract class EnrollmentService {
+	
 	@Autowired
 	private EnrollmentRepository enrollmentRepository;
 
 	@Autowired
 	private UserService userService;
 
-	public Enrollment enrollStudent(User user, Enrollment enrollment) {
+	public Enrollment enrollStudent(User userDto, Enrollment enrollment) {
 
-		if (userService.isAdmin(user) || userService.isLearner(user)) {
+		if (userService.isAdmin(userDto) || userService.isLearner(userDto)) {
 
 			return enrollmentRepository.save(enrollment);
 		} else {
 			throw new UnauthorizedException("Only admins and learners can enroll students.");
 		}
 	}
+	public abstract Enrollment enrollStudent(Enrollment enrollment);
 
 }

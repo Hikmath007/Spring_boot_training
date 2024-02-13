@@ -1,6 +1,8 @@
 package com.example.LearningApp.repository;
 
+import com.example.LearningApp.entity.Course;
 import com.example.LearningApp.entity.FavouriteCourse;
+import com.example.LearningApp.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,4 +10,5 @@ import org.springframework.stereotype.Repository;
 
 public interface FavouriteCourseRepository extends JpaRepository<FavouriteCourse, Long> {
 
+	boolean existsByCourseAndUser(Course course, User user);
 }
