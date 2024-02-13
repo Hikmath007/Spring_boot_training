@@ -9,21 +9,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EnrollmentService {
-    @Autowired
-    private EnrollmentRepository enrollmentRepository;
+	@Autowired
+	private EnrollmentRepository enrollmentRepository;
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    public Enrollment enrollStudent(User user, Enrollment enrollment) {
+	public Enrollment enrollStudent(User user, Enrollment enrollment) {
 
-        if (userService.isAdmin(user) || userService.isLearner(user)) {
+		if (userService.isAdmin(user) || userService.isLearner(user)) {
 
-            return enrollmentRepository.save(enrollment);
-        } else {
-            throw new UnauthorizedException("Only admins and learners can enroll students.");
-        }
-    }
-
+			return enrollmentRepository.save(enrollment);
+		} else {
+			throw new UnauthorizedException("Only admins and learners can enroll students.");
+		}
+	}
 
 }

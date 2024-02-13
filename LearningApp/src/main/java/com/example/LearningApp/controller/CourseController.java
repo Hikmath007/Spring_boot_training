@@ -21,5 +21,4 @@ public class CourseController {
 		return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
 	}
 
-
 }

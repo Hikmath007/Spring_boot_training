@@ -10,17 +10,17 @@ import jakarta.persistence.*;
 @Getter
 @Setter
 public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long courseId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long courseId;
 
-    @Column(nullable = false)
-    private String title;
+	@Column(nullable = false)
+	private String title;
 
-    @Column(nullable = false)
-    private String category;
+	@Column(nullable = false)
+	private String category;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private User author;
+	@ManyToOne
+	@JoinColumn(name = "author_id")
+	private User author;
 }

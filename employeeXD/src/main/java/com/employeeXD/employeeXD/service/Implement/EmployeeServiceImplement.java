@@ -10,35 +10,35 @@ import java.util.Optional;
 
 @Service
 public class EmployeeServiceImplement implements EmployeeService {
-    private final EmployeeRepository employeeRepository;
+	private final EmployeeRepository employeeRepository;
 
-    public EmployeeServiceImplement(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+	public EmployeeServiceImplement(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
 
-    @Override
-    public List<EmployeeEntity> findAllEmployee() {
-        return employeeRepository.findAll();
-    }
+	@Override
+	public List<EmployeeEntity> findAllEmployee() {
+		return employeeRepository.findAll();
+	}
 
-    @Override
-    public Optional<EmployeeEntity> findById(long id) {
-        return employeeRepository.findById(id);
-    }
+	@Override
+	public Optional<EmployeeEntity> findById(long id) {
+		return employeeRepository.findById(id);
+	}
 
-    @Override
-    public EmployeeEntity saveEmployee(EmployeeEntity employeeEntity) {
-        return employeeRepository.save(employeeEntity);
-    }
+	@Override
+	public EmployeeEntity saveEmployee(EmployeeEntity employeeEntity) {
+		return employeeRepository.save(employeeEntity);
+	}
 
-    @Override
-    public EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) {
-        return employeeRepository.save(employeeEntity);
-    }
+	@Override
+	public EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) {
+		return employeeRepository.save(employeeEntity);
+	}
 
-    @Override
-    public void deleteEmployee(long id) {
-        employeeRepository.deleteById(id);
+	@Override
+	public void deleteEmployee(long id) {
+		employeeRepository.deleteById(id);
 
-    }
+	}
 }

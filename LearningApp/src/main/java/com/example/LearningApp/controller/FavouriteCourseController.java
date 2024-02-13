@@ -16,10 +16,10 @@ public class FavouriteCourseController {
 	private FavouriteCourseService favouriteCourseService;
 
 	@PostMapping("/add")
-	public ResponseEntity<FavouriteCourse> addFavouriteCourse(@RequestBody FavouriteCourse favouriteCourse, @RequestAttribute("user") User user) {
+	public ResponseEntity<FavouriteCourse> addFavouriteCourse(@RequestBody FavouriteCourse favouriteCourse,
+			@RequestAttribute("user") User user) {
 		FavouriteCourse addedFavouriteCourse = favouriteCourseService.addFavouriteCourse(user, favouriteCourse);
 		return new ResponseEntity<>(addedFavouriteCourse, HttpStatus.CREATED);
 	}
-
 
 }

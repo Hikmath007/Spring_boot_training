@@ -9,21 +9,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FavouriteCourseService {
-    @Autowired
-    private FavouriteCourseRepository favouriteCourseRepository;
+	@Autowired
+	private FavouriteCourseRepository favouriteCourseRepository;
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    public FavouriteCourse addFavouriteCourse(User user, FavouriteCourse favouriteCourse) {
+	public FavouriteCourse addFavouriteCourse(User user, FavouriteCourse favouriteCourse) {
 
-        if (userService.isLearner(user)) {
+		if (userService.isLearner(user)) {
 
-            return favouriteCourseRepository.save(favouriteCourse);
-        } else {
-            throw new UnauthorizedException("Only the learner can add favourite course.");
-        }
-    }
-
+			return favouriteCourseRepository.save(favouriteCourse);
+		} else {
+			throw new UnauthorizedException("Only the learner can add favourite course.");
+		}
+	}
 
 }
