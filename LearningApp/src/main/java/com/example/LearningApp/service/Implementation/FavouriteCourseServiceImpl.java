@@ -5,9 +5,11 @@ import com.example.LearningApp.entity.User;
 import com.example.LearningApp.repository.FavouriteCourseRepository;
 import com.example.LearningApp.service.FavouriteCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
+@Primary
 public class FavouriteCourseServiceImpl extends FavouriteCourseService {
 	@Autowired
 	private FavouriteCourseRepository favouriteCourseRepository;

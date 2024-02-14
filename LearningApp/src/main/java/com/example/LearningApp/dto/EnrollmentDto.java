@@ -1,13 +1,11 @@
 package com.example.LearningApp.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+	
+@Data
 public class EnrollmentDto {
-	private Long enrollmentId;
-	private Long courseId;
-	private Long userId;
-
+	private Long id;
+	private UserDto user;
+	private CourseDto course;
 }

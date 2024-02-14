@@ -1,12 +1,15 @@
 package com.example.LearningApp.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.example.LearningApp.entity.Course;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class FavouriteCourseDto {
-	private Long favouriteId;
-	private Long courseId;
-	private Long userId;
+	private Long id;
+	private UserDto user;
+	private CourseDto course;
+
+	public Course getCourseId() {
+		return null;
+	}
 }

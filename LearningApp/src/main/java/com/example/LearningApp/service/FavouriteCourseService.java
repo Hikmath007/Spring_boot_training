@@ -7,22 +7,38 @@ import com.example.LearningApp.repository.FavouriteCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FavouriteCourseService {
-	@Autowired
-	private FavouriteCourseRepository favouriteCourseRepository;
+    @Autowired
+    private FavouriteCourseRepository favouriteCourseRepository;
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
+
+    public FavouriteCourse addFavoriteCourse(User user, FavouriteCourse favouriteCourse) {
+
+        if (userService.isLearner(user)) {
+
+            return favouriteCourseRepository.save(favouriteCourse);
+        } else {
+            throw new UnauthorizedException("Only learners can add favorite courses.");
+        }
+    }
+
+
+    public List<FavouriteCourse> getAllFavouriteCourses(User user) {
+        return null;
+    }
+
+    public void removeFavouriteCourse(User user, Long id) {
+
+    }
+
 
 	public FavouriteCourse addFavouriteCourse(User user, FavouriteCourse favouriteCourse) {
-
-		if (userService.isLearner(user)) {
-
-			return favouriteCourseRepository.save(favouriteCourse);
-		} else {
-			throw new UnauthorizedException("Only the learner can add favourite course.");
-		}
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 }
